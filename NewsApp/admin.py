@@ -1,3 +1,5 @@
 from django.contrib import admin
 
-# Register your models here.
+from .models import Topic, Blog, BlogTag, BlogTopic, News, BlogComment, BlogLike, BlogCommentLike
+
+admin.site.register([Topic, Blog, BlogTag, BlogTopic, News, BlogComment, BlogLike, BlogCommentLike])
