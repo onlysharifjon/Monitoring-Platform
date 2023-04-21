@@ -43,7 +43,6 @@ class Blog(models.Model):
     def __str__(self):
         return self.title
 
-
 class BlogTag(models.Model):
     blog = models.ForeignKey(
         Blog,
