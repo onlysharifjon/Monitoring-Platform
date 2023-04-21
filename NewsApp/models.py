@@ -4,8 +4,10 @@ from django_quill.fields import QuillField
 
 blog_image_directory_path = "uploads/"
 
+
 class Topic(models.Model):
     title = models.CharField(max_length=255)
+
 
 class Blog(models.Model):
     class Status(models.IntegerChoices):
