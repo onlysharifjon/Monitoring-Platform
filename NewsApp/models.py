@@ -1,12 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import User
-from django_quill.fields import QuillField
+from ckeditor_uploader.fields import RichTextUploadingField
 
 blog_image_directory_path = "uploads/"
-
-
-class Topic(models.Model):
-    title = models.CharField(max_length=255)
 
 
 class Blog(models.Model):
@@ -26,7 +22,7 @@ class Blog(models.Model):
                                  choices=Status.choices)
 
     title = models.CharField(max_length=255)
-    body = QuillField()
+    body = RichTextUploadingField()
     image = models.ImageField(
         upload_to=blog_image_directory_path,
         null=True,
@@ -43,6 +39,7 @@ class Blog(models.Model):
     def __str__(self):
         return self.title
 
+
 class BlogTag(models.Model):
     blog = models.ForeignKey(
         Blog,
@@ -50,35 +47,6 @@ class BlogTag(models.Model):
         related_name='tags',
     )
     tag = models.CharField(max_length=255)
-
-
-class BlogTopic(models.Model):
-    blog = models.ForeignKey(
-        Blog,
-        on_delete=models.CASCADE,
-        related_name='topics',
-    )
-    topic = models.ForeignKey(
-        to=Topic,
-        on_delete=models.CASCADE,
-        related_name='blogs',
-    )
-
-
-class News(models.Model):
-    news = models.Manager()
-    blog = models.OneToOneField(
-        Blog,
-        on_delete=models.CASCADE,
-        related_name='news',
-    )
-    created = models.DateTimeField(auto_now_add=True)
-
-    class Meta:
-        ordering = ['-created', '-blog__id']
-
-    def __str__(self):
-        return self.blog.title
 
 
 class BlogComment(models.Model):
@@ -104,15 +72,15 @@ class BlogComment(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
 
-    def get_all_childs(self):
-        childs = [self]
-        for comment in childs:
+    def get_all_children(self):
+        children = [self]
+        for comment in children:
             for reply in comment.replies.all():
-                childs.append(reply)
+                children.append(reply)
 
-        childs.pop(0)
-        childs.sort(key=lambda comment: comment.created)
-        return childs
+        children.pop(0)
+        children.sort(key=lambda x: x.created)
+        return children
 
     class Meta:
         ordering = ['id']

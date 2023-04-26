@@ -1,23 +1,14 @@
 import os
 from pathlib import Path
 from corsheaders.defaults import default_headers
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-psu^3vbi&xifinv=vc#@5*dgzb&=7e$irfoml40yumjy2bcno^'
 
-# SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
-
-# Application definition
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -26,8 +17,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django_quill',
-    'NewsApp', 'rest_framework','corsheaders'
+    'ckeditor_uploader',
+    'ckeditor',
+    'NewsApp', 'rest_framework', 'corsheaders'
 ]
 
 MIDDLEWARE = [
@@ -76,20 +68,12 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'core.wsgi.application'
 
-
-# Database
-# https://docs.djangoproject.com/en/4.2/ref/settings/#databases
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-
-
-# Password validation
-# https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -106,23 +90,23 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Tashkent'
 
 USE_I18N = True
 
 USE_TZ = True
 
-
-STATIC_URL = 'static/'
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+)
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 STATIC_URL = "/static/"
 STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'static')
-
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
@@ -132,34 +116,79 @@ if DEBUG:
 else:
     STATIC_ROOT = os.path.join(BASE_DIR, "static")
 
+CKEDITOR_UPLOAD_PATH = "uploads/"
 
-toolbarOptions = [
-    ['bold', 'italic', 'underline', 'strike'],
-    ['blockquote', 'code-block', 'formula'],
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar_DefaultToolbarConfig': [
 
-    [{'header': 1}, {'header': 2}],
-    [{'list': 'ordered'}, {'list': 'bullet'}],
-    [{'script': 'sub'}, {'script': 'super'}],
-    [{'indent': '-1'}, {'indent': '+1'}],
-    [{'direction': 'rtl'}],
+            {
+                'name': 'format',
+                'items': ['Styles', 'Format', 'Font', 'FontSize'],
+            },
+            {
+                'name': 'colors', 'items': ['TextColor', 'BGColor']},
+            {
+                'name': 'basic-styles',
+                'items': ['Bold', 'Italic', 'Underline', 'Strike', 'Subscript',
+                          'Superscript', ],
+            },
+            {
+                'name': 'templates',
+                'items': ['Templates'],
+            },
+            {
+                'name': 'paragraph',
+                'items': ['NumberedList', 'BulletedList', 'Outdent', 'Indent',
+                          'HorizontalRule', 'JustifyLeft', 'JustifyCenter',
+                          'JustifyRight', 'JustifyBlock', ],
+            },
+            '/',
+            {
+                'name': 'action',
+                'items': ['Undo', 'Redo']
+            },
+            {
+                'name': 'extra',
+                'items': ['Link', 'Unlink', 'Blockquote', 'Image', 'Table', 'Mathjax', 'CodeSnippet',
+                          'Flash', 'Table', 'HorizontalRule', 'Smiley', 'SpecialChar', 'PageBreak', 'Iframe'],
+            },
+            {
+                'name': 'source',
+                'items': ['Source', 'Maximize', ],
+            },
 
-    [{'size': ['small', False, 'large', 'huge']}],
-    [{'header': [1, 2, 3, 4, 5, 6, False]}],
+        ],
+        'title': False,
 
-    [{'color': []}, {'background': []}],
-    [{'font': []}],
-    [{'align': []}],
+        'toolbar': 'DefaultToolbarConfig',
 
-    ['clean']
-]
+        'format_tags': 'p;pre;h1;h2;h3;h4;h5;h6',
 
-QUILL_CONFIGS = {
-    "default": {
-        "placeholder": 'Enter something...',
-        "theme": 'snow',
-        "formula": False,
-        "modules": {
-            "toolbar": toolbarOptions
-        }
+        'removeDialogTabs': ';'.join([
+            'image:advanced',
+            'image:Link',
+            'link:upload',
+            'table:advanced',
+            'tableProperties:advanced',
+        ]),
+        'linkShowTargetTab': False,
+        'linkShowAdvancedTab': False,
+
+        'height': '500',
+        'width': '100%',
+        'forcePasteAsPlainText ': True,
+
+        'mathJaxClass': 'mathjax-latex',
+        'mathJaxLib': 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_SVG',
+        'tabSpaces': 4,
+        'extraPlugins': 'mathjax, codesnippet',
+
+        'codeSnippet_theme': 'pojoaque',
+        'codeSnippet_languages': {
+            'python': 'Python',
+            'cpp': 'C++',
+            'java': 'Java'
+        },
     }
 }
