@@ -5,9 +5,8 @@ from .views import BlogViewSet
 
 blog_list = BlogViewSet.as_view({'get': 'list'})
 
-
 urlpatterns = [
-    path('blogs/v1', blog_list, name='index'),
-]
+                  path('blogs/v1', blog_list, name='index'),
+              ]
 
 urlpatterns = format_suffix_patterns(urlpatterns)
