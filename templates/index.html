@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Manashu API Image</title>
+</head>
+<body>
+    <h1>Manashu API Image</h1>
+    <img id="image" src="" alt="Manashu API Image">
+
+    <script>
+        fetch('http://127.0.0.1:8000/api/blogs/v1')
+            .then(response => response.blob())
+            .then(blob => {
+                var image = document.getElementById("image");
+                var url = URL.createObjectURL(blob);
+                image.src = url;
+            });
+    </script>
+</body>
+</html>
