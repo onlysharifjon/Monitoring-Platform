@@ -1,11 +1,34 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Manashu API Image</title>
 </head>
+
 <body>
     <h1>Manashu API Image</h1>
     <img id="image" src="" alt="Manashu API Image">
+    <div>
+        <ul>
+            <li>
+                <h3>Alimardon Mirazaabdullayev</h3>
+                <div style="display: flex; gap: 15px; align-items:flex-start;">
+                    <img src="https://picsum.photos/100" alt="" width="100" height="100">
+                    <div class="content">
+
+                        <p>Ma'lumoti: </p>
+                        <p> Tug'ilgan kuni:</p>
+                        <p> Lorem ipsum dolor sit amet.</p>
+                        <p> Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iusto?</p>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur, magni.</p>
+                        <p></p>
+
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
 
     <script>
         fetch('http://127.0.0.1:8000/api/blogs/v1')
@@ -17,4 +40,5 @@
             });
     </script>
 </body>
+
 </html>
