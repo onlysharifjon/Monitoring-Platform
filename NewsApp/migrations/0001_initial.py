@@ -4,8 +4,7 @@ from django.conf import settings
 from django.db import migrations, models
 import django.db.models.deletion
 import django.db.models.manager
-import django_quill.fields
-
+import ckeditor_uploader.fields
 
 class Migration(migrations.Migration):
 
@@ -22,7 +21,7 @@ class Migration(migrations.Migration):
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('status', models.IntegerField(choices=[(1, 'Draft'), (2, 'Published'), (3, 'Updated')], default=1)),
                 ('title', models.CharField(max_length=255)),
-                ('body', django_quill.fields.QuillField()),
+                ('body', ckeditor_uploader.fields.RichTextUploadingField()),
                 ('image', models.ImageField(blank=True, null=True, upload_to='uploads/')),
                 ('views', models.IntegerField(default=0)),
                 ('created', models.DateTimeField(auto_now_add=True)),
