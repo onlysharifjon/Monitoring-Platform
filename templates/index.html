@@ -8,13 +8,13 @@
 <link href="https://fonts.googleapis.com/css?family=Mukta:300,400,500,600,700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../static/style.css">
 
-<body>
+<body class="container">
 
     <header class="header">
-        <div class="container">
+        <div class="">
             <div class="header__top">
                 <a class="header__top-logo tuit" href="./index.html">
-                    <img src="https://lms.tuit.uz/assets/images/logo-md.png" width="43" height="43" alt="tuit-logo">
+                    <img src="https://lms.tuit.uz/assets/images/logo-md.png" width="50" height="50" alt="tuit-logo">
                 </a>
                 <div class="header__top-content">
                     <h2 class="header__top-title ">muhammad al-xorazmiy nomidagi
@@ -26,8 +26,8 @@
                     <h2 class="header__top-title header__top-titlehigh ">oliy matematika kafedrasi</h2>
                 </div>
 
-                <a class="header__top-logo high__math" style="width: 24px; height: 24px;" href="./index.html">
-                    <img src="https://picsum.photos/50" width="50" height="50" alt="Rahbar">
+                <a class="header__top-logo high__math" href="./index.html">
+                    <img src="https://picsum.photos/50/50" width="50" height="50" alt="Rahbar">
                 </a>
             </div>
             <nav>
@@ -49,7 +49,7 @@
                     <li class=""><a class="nav-link" href="./contact.html">Hamkorlarimiz</a>
                     </li>
                     <li class="">
-                        <a class="nav-link" href="./contact.html">Yangiliklar</a>
+                        <a class="nav-link active" href="./contact.html">Yangiliklar</a>
                     </li>
                     <li class="">
                         <a class="nav-link" href="./contact.html">Mukofotlar</a>
@@ -71,7 +71,7 @@
                     </li>
                     <li class=""><a class="nav-link" href="./blog.html">Faxriylarimiz</a>
                     <li>
-                        <a class="nav-link" href="./teachers.html">
+                        <a class="nav-link link" href="./teachers.html">
                             Kafedra tarkibi
                         </a>
                     </li>
@@ -109,32 +109,33 @@
         </div>
     </header>
 
+    <main>
+        <section>
+            <div style="margin-top: 200px;" class="container">
+                <ul>
+                    <li>
+                        <h3>Alimardon Mirazaabdullayev</h3>
+                        <div style="display: flex; gap: 15px; align-items:flex-start;">
+                            <img src="https://picsum.photos/100" alt="" width="100" height="100">
+                            <div class="content">
 
-    <h1>Manashu API Image</h1>
-    <img id="image" src="" alt="Manashu API Image">
-    <div>
-        <ul>
-            <li>
-                <h3>Alimardon Mirazaabdullayev</h3>
-                <div style="display: flex; gap: 15px; align-items:flex-start;">
-                    <img src="https://picsum.photos/100" alt="" width="100" height="100">
-                    <div class="content">
+                                <p>Ma'lumoti: </p>
+                                <p> Tug'ilgan kuni:</p>
+                                <p> Lorem ipsum dolor sit amet.</p>
+                                <p> Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iusto?</p>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur, magni.</p>
+                                <p></p>
 
-                        <p>Ma'lumoti: </p>
-                        <p> Tug'ilgan kuni:</p>
-                        <p> Lorem ipsum dolor sit amet.</p>
-                        <p> Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iusto?</p>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur, magni.</p>
-                        <p></p>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </main>
 
-                    </div>
-                </div>
-            </li>
-        </ul>
-    </div>
-
-    <script>
+    <!-- <script>
         fetch('http://127.0.0.1:8000/api/blogs/v1')
             .then(response => response.blob())
             .then(blob => {
@@ -142,7 +143,7 @@
                 var url = URL.createObjectURL(blob);
                 image.src = url;
             });
-    </script>
+    </script> -->
 </body>
 
 </html>
