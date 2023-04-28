@@ -8,13 +8,14 @@
 <link href="https://fonts.googleapis.com/css?family=Mukta:300,400,500,600,700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../static/style.css">
 
-<body class="container">
+<body class="">
 
-    <header class="header">
-        <div class="">
+    <header class="header" id="header">
+        <div class="container" id="wrapper">
             <div class="header__top">
                 <a class="header__top-logo tuit" href="./index.html">
-                    <img src="https://lms.tuit.uz/assets/images/logo-md.png" width="50" height="50" alt="tuit-logo">
+                    <img class="logo" src="https://lms.tuit.uz/assets/images/logo-md.png" width="50" height="50"
+                        alt="tuit-logo">
                 </a>
                 <div class="header__top-content">
                     <h2 class="header__top-title ">muhammad al-xorazmiy nomidagi
@@ -27,11 +28,11 @@
                 </div>
 
                 <a class="header__top-logo high__math" href="./index.html">
-                    <img src="https://picsum.photos/50/50" width="50" height="50" alt="Rahbar">
+                    <img class="logo" src="https://picsum.photos/50/50" width="50" height="50" alt="Rahbar">
                 </a>
             </div>
-            <nav>
-                <ul class="header_navbar-list">
+            <nav id="nav">
+                <ul class="header_navbar-list list">
 
                     <li class="">
                         <a class="nav-link" href="./students.html">Talabalarga</a>
@@ -57,54 +58,54 @@
                     <li class="">
                         <a class="nav-link" href="./contact.html">Aloqalar</a>
                     </li>
+                    <li>
+                        <a class="nav-link link" href="./kalkulyator.html">
+                            Kalkulyatorlar</a>
+                    </li>
 
 
                 </ul>
-
-                <i class="fas fa-bars" id="ham-menu"></i>
-                <ul class="nav__list" id="nav-bar">
+                <ul class="nav__list list" id="nav-bar">
 
                     <li>
-                        <a class="nav-link" href="#about">
+                        <a class="nav-link " href="#about">
                             Kafedra tarixi
                         </a>
                     </li>
-                    <li class=""><a class="nav-link" href="./blog.html">Faxriylarimiz</a>
+                    <li class=""><a class="nav-link link" href="./blog.html">Faxriylarimiz</a>
                     <li>
                         <a class="nav-link link" href="./teachers.html">
                             Kafedra tarkibi
                         </a>
                     </li>
                     <li>
-                        <a class="nav-link" href="./subject.html">
+                        <a class="nav-link link" href="./subject.html">
                             Kafedra fanlar
                         </a>
                     </li>
                     <li>
-                        <a class="nav-link" href="./schedule.html">
+                        <a class="nav-link link" href="./schedule.html">
                             Dars jadval
                         </a>
                     </li>
                     <li>
-                        <a class="nav-link" href="#contact">
+                        <a class="nav-link link" href="#contact">
                             Meyoriy
                         </a>
                     </li>
                     <li>
-                        <a class="nav-link" href="#contact">
+                        <a class="nav-link link" href="#contact">
                             Faoliyat
                         </a>
                     </li>
                     <li>
-                        <a class="nav-link" href="#contact">
+                        <a class="nav-link link" href="#contact">
                             Statistika
                         </a>
                     </li>
-                    <li>
-                        <a class="nav-link" href="./kalkulyator.html">
-                            Kalkulyatorlar</a>
-                    </li>
+
                 </ul>
+                <button class="header__btn" id="headerbtn"></button>
             </nav>
         </div>
     </header>
@@ -144,6 +145,9 @@
                 image.src = url;
             });
     </script> -->
+
+
+    <script src="../static/script.js"></script>
 </body>
 
 </html>
