@@ -408,7 +408,7 @@ ul {
 }
 
 .container {
-  max-width: 1140px;
+  max-width: 1240px;
   padding: 0 10px;
   margin-left: auto;
   margin-right: auto;
@@ -435,6 +435,7 @@ ul {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  box-shadow: inset;
 }
 
 .header__top-title {
