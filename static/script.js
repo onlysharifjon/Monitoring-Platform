@@ -1,14 +1,22 @@
-const headerBtn = document.querySelector("#headerbtn")
-const headerNav = document.querySelector("#nav")
-const headerul = headerNav.querySelector(".list")
-let isNavbarExpanded = headerBtn.getAttribute("aria-expanded") === "true";
+
+// let headerBtn = document.querySelector("#headerbtn");
+
+// headerBtn.addEventListener("submit", (evt) => {
+//     console.log(evt);
+// })
+
+
+const navbarToggle = navbar.querySelector("#navbar-toggle");
+const navbarMenu = document.querySelector("#navbar-menu");
+const navbarLinksContainer = navbarMenu.querySelector(".navbar-links");
+let isNavbarExpanded = navbarToggle.getAttribute("aria-expanded") === "true";
 
 const toggleNavbarVisibility = () => {
     isNavbarExpanded = !isNavbarExpanded;
-    headerBtn.setAttribute("aria-expanded", isNavbarExpanded);
+    navbarToggle.setAttribute("aria-expanded", isNavbarExpanded);
 };
 
-headerBtn.addEventListener("click", toggleNavbarVisibility);
+navbarToggle.addEventListener("click", toggleNavbarVisibility);
 
-headerul.addEventListener("click", (e) => e.stopPropagation());
-headerNav.addEventListener("click", toggleNavbarVisibility);
+navbarLinksContainer.addEventListener("click", (e) => e.stopPropagation());
+navbarMenu.addEventListener("click", toggleNavbarVisibility);
