@@ -20,7 +20,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'ckeditor_uploader',
     'ckeditor',
-    'NewsApp', 'rest_framework', 'corsheaders'
+    'NewsApp', 'rest_framework', 'corsheaders',
+    'drf_yasg'
 ]
 
 MIDDLEWARE = [
