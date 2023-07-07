@@ -25,5 +25,6 @@ urlpatterns = [
                   path('admin/', admin.site.urls),
                   path("ckeditor", include("ckeditor_uploader.urls")),
                   path('api/', include('NewsApp.urls')),
+                  path('Quiz/', include('QuizApp.urls')),
                   path('', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
               ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
