@@ -10,7 +10,7 @@
 pyvenv.cfg
 venv
 pip-selfcheck.json
-
+static/
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

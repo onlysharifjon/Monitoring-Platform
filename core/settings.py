@@ -6,9 +6,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = 'django-insecure-psu^3vbi&xifinv=vc#@5*dgzb&=7e$irfoml40yumjy2bcno^'
 
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["quvonchbek.uz"]
+
+CSRF_TRUSTED_ORIGINS = ["https://quvonchbek.uz", "http://quvonchbek.uz"]
 
 INSTALLED_APPS = [
     'jazzmin',
@@ -109,7 +111,7 @@ STATICFILES_FINDERS = (
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 STATIC_URL = "/static/"
-STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'static')
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
