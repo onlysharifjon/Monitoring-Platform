@@ -33,6 +33,7 @@ class ThemeFindView(APIView):
     @swagger_auto_schema(request_body=QuizSerializer)
     def post(self, request):
         theme = request.data.get('theme')
-        obj = Quiz.objects.filter(theme__theme=theme)
+        the = ThemeQuiz.objects.get(id=theme)
+        obj = Quiz.objects.filter(theme__theme=the)
         serializer = QuizFindSerializer(obj, many=True)
         return Response(serializer.data)

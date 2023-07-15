@@ -6,7 +6,7 @@ from .models import ThemeQuiz, Quiz
 
 class QuizSerializer(serializers.ModelSerializer):
     class Meta:
-        model = ThemeQuiz
+        model = Quiz
         fields = ('theme',)
 
 class QuizFindSerializer(serializers.ModelSerializer):
