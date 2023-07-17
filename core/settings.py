@@ -8,7 +8,7 @@ SECRET_KEY = 'django-insecure-psu^3vbi&xifinv=vc#@5*dgzb&=7e$irfoml40yumjy2bcno^
 
 DEBUG = False
 
-ALLOWED_HOSTS = ["quvonchbek.uz"]
+ALLOWED_HOSTS = ["*"]
 
 CSRF_TRUSTED_ORIGINS = ["https://quvonchbek.uz", "http://quvonchbek.uz"]
 
@@ -22,7 +22,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'ckeditor_uploader',
     'ckeditor',
-    'NewsApp', 'QuizApp', 'rest_framework', 'corsheaders',
+    'NewsApp', 'QuizApp', 'TeacherApp',
+    'rest_framework', 'corsheaders',
     'drf_yasg',
 
 ]
@@ -95,7 +96,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'uz'
 
 TIME_ZONE = 'Asia/Tashkent'
 
@@ -115,11 +116,6 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-
-if DEBUG:
-    STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
-else:
-    STATIC_ROOT = os.path.join(BASE_DIR, "static")
 
 CKEDITOR_UPLOAD_PATH = "uploads/"
 
