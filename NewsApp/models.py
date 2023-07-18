@@ -119,3 +119,15 @@ class BlogCommentLike(models.Model):
     )
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
+
+
+class Teachers(models.Model):
+    name = models.CharField(max_length=100)
+    surname = models.CharField(max_length=100)
+    image = models.ImageField(upload_to='teachers')
+    description = models.TextField()
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.name

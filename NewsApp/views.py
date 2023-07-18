@@ -1,8 +1,9 @@
 from requests import Response
 from rest_framework import viewsets
-from .serializers import BlogSerializer
-from .models import Blog
+from .serializers import BlogSerializer, TeacherSerializer
+from .models import Blog, Teachers
 from drf_yasg.utils import swagger_auto_schema
+from rest_framework.views import APIView
 
 
 class BlogViewSet(viewsets.ReadOnlyModelViewSet):
@@ -20,6 +21,14 @@ class BlogViewSet(viewsets.ReadOnlyModelViewSet):
         else:
             return Response(serializer.errors)
 
+
+class TeacherInfoView(APIView):
+    @swagger_auto_schema(request_body=TeacherSerializer)
+    def get(self, request):
+        # blog objects send all
+        blogs = Teachers.objects.all()
+        serializer = TeacherSerializer(blogs, many=True)
+        return Response(serializer.data)
 
 
 from django.shortcuts import render
