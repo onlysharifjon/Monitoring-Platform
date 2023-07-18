@@ -6,7 +6,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = 'django-insecure-psu^3vbi&xifinv=vc#@5*dgzb&=7e$irfoml40yumjy2bcno^'
 
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
 
@@ -27,6 +27,10 @@ INSTALLED_APPS = [
     'drf_yasg',
 
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_FORMATS': ['json'],
+}
 
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
@@ -192,4 +196,86 @@ CKEDITOR_CONFIGS = {
             'java': 'Java'
         },
     }
+}
+
+JAZZMIN_SETTINGS = {
+    "site_title": "TATU Oliy Matematika Kafedrasi",
+    "site_header": "Oliy Matematika",
+    "site_brand": "Oliy Matematika",
+    "site_icon": "images/favicon.png",
+    # Add your own branding here
+    "site_logo": None,
+    "welcome_sign": "Salom, admin panelga xush kelibsiz!",
+    # Copyright on the footer
+    "copyright": "TUIT",
+    "user_avatar": None,
+    ############
+    # Top Menu #
+    ############
+    # Links to put along the top menu
+    "topmenu_links": [
+        # Url that gets reversed (Permissions can be added)
+        {"name": "Home", "url": "/admin", "permissions": ["auth.view_user"]},
+        {"name": "Yangiliklar", "url": "/admin/NewsApp", "permissions": ["auth.view_user"]},
+        {"name": "O'qituvchilar", "url": "/admin/TeacherApp", "permissions": ["auth.view_user"]},
+        {"name": "Testlar", "url": "/admin/QuizApp", "permissions": ["auth.view_user"]},
+        # model admin to link to (Permissions checked against model)
+        {"model": "auth.User"},
+        {"name": "Redoc", "url": "redoc", "permissions": ["auth.view_user"]},
+        {"name": "Swagger", "url": "swagger", "permissions": ["auth.view_user"]},
+    ],
+    #############
+    # Side Menu #
+    #############
+    # Whether to display the side menu
+    "show_sidebar": True,
+    # Whether to aut expand the menu
+    "navigation_expanded": False,
+    # Custom icons for side menu apps/models See https://fontawesome.com/icons?d=gallery&m=free&v=5.0.0,5.0.1,5.0.10,5.0.11,5.0.12,5.0.13,5.0.2,5.0.3,5.0.4,5.0.5,5.0.6,5.0.7,5.0.8,5.0.9,5.1.0,5.1.1,5.2.0,5.3.0,5.3.1,5.4.0,5.4.1,5.4.2,5.13.0,5.12.0,5.11.2,5.11.1,5.10.0,5.9.0,5.8.2,5.8.1,5.7.2,5.7.1,5.7.0,5.6.3,5.5.0,5.4.2
+    # for the full list of 5.13.0 free icon classes
+    "icons": {
+        "auth": "fas fa-users-cog",
+        "auth.user": "fas fa-user",
+        "users.User": "fas fa-user",
+        "auth.Group": "fas fa-users",
+        "admin.LogEntry": "fas fa-file",
+        "TeacherApp": "fas fa-user",
+        "TeacherApp.Lesson": "fas fa-calendar",
+        "TeacherApp.Teacher": "fas fa-user",
+        "TeacherApp.Room": "fas fa-door-open",
+        "TeacherApp.Subject": "fas fa-book",
+        "TeacherApp.ForeignLangs": "fas fa-language",
+        "TeacherApp.Group": "fas fa-users",
+        "TeacherApp.ScientificDegree": "fas fa-flask",
+        "TeacherApp.ScientificTitle": "fas fa-graduation-cap",
+
+        "QuizApp": "fas fa-question",
+        "QuizApp.Quiz": "fas fa-question",
+
+        "NewsApp": "fas fa-envelope",
+        "NewsApp.Blog": "fas fa-pen-nib"
+    },
+    "default_icon_parents": "fas fa-chevron-circle-right",
+    "default_icon_children": "fas fa-arrow-circle-right",
+    # Related Modal #
+    # Use modals instead of popups
+    "related_modal_active": False,
+    #############
+    # UI Tweaks #
+    #############
+    # Relative paths to custom CSS/JS scripts (must be present in static files)
+    # Uncomment this line once you create the bootstrap-dark.css file
+    # "custom_css": "css/bootstrap-dark.css",
+    "custom_js": None,
+    # Whether to show the UI customizer on the sidebar
+    "show_ui_builder": False,
+    ###############
+    # Change view #
+    ###############
+    "changeform_format": "vertical_tabs",
+    # override change forms on a per modeladmin basis
+    #     "changeform_format_overrides": {
+    #         "auth.user": "vertical_tabs",
+    #         # "auth.group": "vertical_tabs",
+    #     },
 }
