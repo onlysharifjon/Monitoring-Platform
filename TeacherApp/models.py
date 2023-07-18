@@ -1,19 +1,21 @@
 from django.db import models
 
+image_directory_path = "teachers/"
+
 
 class EduLevel(models.Model):
-    title = models.CharField(max_length=100)
+    title = models.CharField(max_length=100, verbose_name="Ma'lumoti")
 
     def __str__(self):
         return self.title
 
     class Meta:
-        verbose_name = "Ma'lumotlar"
-        verbose_name_plural = "Ma'lumoti"
+        verbose_name = "Ma'lumoti"
+        verbose_name_plural = "Ma'lumot darajalar"
 
 
 class Specialty(models.Model):
-    title = models.CharField(max_length=100)
+    title = models.CharField(max_length=100, verbose_name="Mutaxassislik")
 
     def __str__(self):
         return self.title
@@ -24,7 +26,7 @@ class Specialty(models.Model):
 
 
 class ScientificDegree(models.Model):
-    title = models.CharField(max_length=100)
+    title = models.CharField(max_length=100, verbose_name="Ilmiy daraja")
 
     def __str__(self):
         return self.title
@@ -35,7 +37,7 @@ class ScientificDegree(models.Model):
 
 
 class ScientificTitle(models.Model):
-    title = models.CharField(max_length=100)
+    title = models.CharField(max_length=100, verbose_name="Ilmiy unvon")
 
     def __str__(self):
         return self.title
@@ -46,7 +48,7 @@ class ScientificTitle(models.Model):
 
 
 class ForeignLangs(models.Model):
-    title = models.CharField(max_length=100)
+    title = models.CharField(max_length=100, verbose_name="Chet tili")
 
     def __str__(self):
         return self.title
@@ -72,6 +74,9 @@ class Teacher(models.Model):
     foreign_langs = models.ManyToManyField(ForeignLangs, "flang_teachers", verbose_name="Chet tillarini bilish",
                                            blank=True)
     work_starting_date = models.DateField(null=True, blank=True, verbose_name="Qachon ishga kirgan")
+    image = models.ImageField("Rasm", upload_to=image_directory_path, null=True)
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return self.full_name
@@ -135,7 +140,7 @@ class Lesson(models.Model):
     group = models.ForeignKey(Group, models.CASCADE, "group_lessons", verbose_name="Guruh(yoki Patok)")
     room = models.ForeignKey(Room, models.CASCADE, "room_lessons", verbose_name="Xona")
     time = models.TimeField(verbose_name="Boshlash vaqti")
-    duration = models.IntegerField(default=80, verbose_name="Davomiyligi(minutda)")
+    duration = models.IntegerField(default=80, verbose_name="Davomiyligi")
     week_day = models.IntegerField(choices=wk_days, verbose_name="Hafta kuni")
 
     def __str__(self):
