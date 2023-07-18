@@ -1,7 +1,7 @@
 from django.shortcuts import render
 
 # Create your views here.
-
+from rest_framework.views import APIView
 from .models import ThemeQuiz, Quiz
 from rest_framework.views import APIView
 from rest_framework.response import Response
@@ -33,6 +33,7 @@ class ThemeFindView(APIView):
     @swagger_auto_schema(request_body=QuizSerializer)
     def post(self, request):
         theme = request.data.get('theme')
-        obj = Quiz.objects.filter(theme__theme=theme)
+        the = ThemeQuiz.objects.get(id=theme)
+        obj = Quiz.objects.filter(theme__theme=the)
         serializer = QuizFindSerializer(obj, many=True)
         return Response(serializer.data)
