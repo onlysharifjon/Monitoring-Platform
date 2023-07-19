@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Teacher
+from .models import Teacher, Lesson
 
 
 class TeacherSerializer(serializers.ModelSerializer):
@@ -11,4 +11,14 @@ class TeacherSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Teacher
+        fields = "__all__"
+
+
+class LessonSerializer(serializers.ModelSerializer):
+    room = serializers.SlugField("title")
+    teacher = serializers.SlugField("full_name")
+    subject = serializers.SlugField("full_name")
+    group = serializers.SlugField("full_name")
+    class Meta:
+        model = Lesson
         fields = "__all__"
