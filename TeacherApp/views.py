@@ -2,7 +2,7 @@ from rest_framework.generics import ListAPIView, RetrieveAPIView
 from rest_framework.permissions import IsAuthenticated
 
 from .models import Teacher, Lesson
-from .serializers import TeacherSerializer, LessonSerializer
+from .serializers import TeacherSerializer, LessonSerializer, ResultsSetPagination
 
 
 class SingleTeacherView(RetrieveAPIView):
@@ -13,6 +13,7 @@ class SingleTeacherView(RetrieveAPIView):
 class AllTeachersView(ListAPIView):
     queryset = Teacher.objects.all()
     serializer_class = TeacherSerializer
+    pagination_class = ResultsSetPagination
 
 
 class TeacherLessonsView(ListAPIView):
