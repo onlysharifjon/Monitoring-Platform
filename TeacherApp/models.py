@@ -62,14 +62,16 @@ class Teacher(models.Model):
     full_name = models.CharField(max_length=100, verbose_name="F.I.SH")
     birth_date = models.DateField(verbose_name="Tug'ilgan sanasi")
     birth_place = models.CharField(max_length=255, verbose_name="Tug'ilgan joyi")
-    education_level = models.ForeignKey(EduLevel, models.CASCADE, verbose_name="Ma'lumoti",
+    education_level = models.ForeignKey(EduLevel, null=True, on_delete=models.SET_NULL, verbose_name="Ma'lumoti",
                                         related_name="level_teachers")
     graduated_institution = models.CharField(max_length=255, verbose_name="Tamomlagan OTM")
-    specialty = models.ForeignKey(Specialty, models.CASCADE, related_name="spec_teachers",
+    specialty = models.ForeignKey(Specialty, null=True, on_delete=models.SET_NULL, related_name="spec_teachers",
                                   verbose_name="Mutaxassisligi")
-    scientific_degree = models.ForeignKey(ScientificDegree, models.CASCADE, related_name="sc_degree_teachers",
+    scientific_degree = models.ForeignKey(ScientificDegree, null=True, on_delete=models.SET_NULL,
+                                          related_name="sc_degree_teachers",
                                           verbose_name="Ilmiy darajasi")
-    scientific_title = models.ForeignKey(ScientificTitle, models.CASCADE, related_name="sc_title_teachers",
+    scientific_title = models.ForeignKey(ScientificTitle, null=True, on_delete=models.SET_NULL,
+                                         related_name="sc_title_teachers",
                                          verbose_name="Ilmiy unvoni")
     foreign_langs = models.ManyToManyField(ForeignLangs, "flang_teachers", verbose_name="Chet tillarini bilish",
                                            blank=True)
